@@ -1,3 +1,4 @@
-- Basic core of the application -
-Allows a user to create new tasks via button that opens up modal view
-which asks for input task title, once added the task shows up in the home tab.
+- Finished side menu for catagories:
+  -allows the creation of various catagories that store tasks
+  -catagories are saved in localstorage and loaded when application starts
+  -promoted to enter new catagory on first start up

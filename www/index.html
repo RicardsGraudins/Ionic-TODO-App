@@ -28,27 +28,37 @@
         <!-- Center content -->
         <ion-side-menu-content>
             <ion-header-bar class="bar-dark">
-                <h1 class="title">Home</h1>
+                <button class="button button-icon" ng-click="toggleCatagories()"> <!-- toggle catagory menu -->
+                    <i class="icon ion-navicon"></i>
+                </button>
+                <h1 class="title">{{activeCatagory.title}}</h1> <!-- display title of the catagory you're in -->
                 <button class="button button-icon" ng-click="newTask()"> <!-- a button to access modal to add new task -->
                     <i class="icon ion-compose"></i> <!-- fixes tiny icon in header -->
                 </button>
             </ion-header-bar>
-
-            <ion-content>
+            <ion-content scroll="false"> <!-- prevent scroll -->
                 <ion-list>
-                    <ion-item ng-repeat="task in tasks">
+                    <ion-item ng-repeat="task in activeCatagory.tasks">
                         {{task.title}} <!-- output whats stored in task.title -->
+                       <!-- {{task.description}} <!-- output whats stored in task.title -->
                     </ion-item>
                 </ion-list>
             </ion-content>
         </ion-side-menu-content>
 
         <!-- catagory menu to the left -->
-        <!-- placeholder for catagories that will store tasks -->
         <ion-side-menu side="left">
             <ion-header-bar class="bar-dark">
                 <h1 class="title">Catagories</h1>
+                <button class="button button-icon ion-plus" ng-click="newCatagory()"></button> <!-- make a new catagory -->
             </ion-header-bar>
+                <ion-content scroll="false"> <!-- prevents scroll -->
+                    <ion-list>
+                        <ion-item ng-repeat="catagory in catagories" ng-click="selectCatagory(catagory, $index)" ng-class="{active: activeCatagory == catagory}"> <!-- display list of catagories -->
+                            {{catagory.title}}
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
         </ion-side-menu>
     </ion-side-menus>
         
@@ -65,7 +75,13 @@
                 
                 <div class="list">
                     <label class="item item-input">
-                        <input type="text" placeholder="What do you need to do?" ng-model="task.title">
+                        <input type="text" placeholder="Enter a task!" ng-model="task.title">
+                    </label>
+                </div>
+                
+                <div class="list"> <!-- placeholder for more details -->
+                    <label class="item item-input">
+                        <input type="text" placeholder="Enter more details:" ng-model="task.description">
                     </label>
                 </div>
                 
