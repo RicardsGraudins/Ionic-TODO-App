@@ -5,7 +5,7 @@
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="toggleCatagories()"> <!-- menu-toggle="left" -->
         </button>
       </ion-nav-buttons>
         
@@ -35,15 +35,15 @@
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Catagories</h1>
+        <button class="button button-icon" ng-click="newCatagory()"> <!-- create new catagory -->
+            <i class="icon ion-plus"></i>
+        </button>
     </ion-header-bar>
-    <ion-content>
+    <ion-content scroll="false"> <!-- disables scroll -->
       <ion-list>
-        <ion-item menu-close href="#/tab/home">
-          Home
-        </ion-item>
-        <ion-item menu-close href="#/tab/options">
-          Options
-        </ion-item>
+          <ion-item ng-repeat="catagory in catagories" ng-click="selectCatagory(catagory, $index)" ng-class="{active: activeCatagory == catagory}"> <!-- select catagory -->
+            {{catagory.title}}
+          </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
