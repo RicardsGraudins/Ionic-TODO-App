@@ -1,4 +1,3 @@
-- Finished side menu for catagories:
-  -allows the creation of various catagories that store tasks
-  -catagories are saved in localstorage and loaded when application starts
-  -promoted to enter new catagory on first start up
+- Reconfigured layout of app
+Decided to use tabs to navigate between 2 pages: home & options.
+While keeping the side menu for catagories.
