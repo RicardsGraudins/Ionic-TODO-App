@@ -1,0 +1,2 @@
+-Added the code for catagories side menu.
+-Options tab not functioning correctly.
