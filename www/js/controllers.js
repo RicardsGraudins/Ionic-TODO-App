@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('tabCtrl', function($scope, $timeout, $ionicModal, Catagories, $ionicSideMenuDelegate) { //using modal for hide() & show() 
+.controller('tabCtrl', function($scope, $timeout, $ionicModal, Catagories, $ionicSideMenuDelegate, $ionicPopup) { //using modal for hide() & show() 
   // A utility function for creating a new catagory
   // with the given catagoryTitle
   var createCatagory = function(catagoryTitle) {
@@ -39,7 +39,6 @@ angular.module('starter.controllers', [])
     Catagories.save($scope.catagories);
     $scope.selectCatagory(newCatagory, $scope.catagories.length-1);
   }
-
 
   // Load or initialize catagories
   $scope.catagories = Catagories.all();
@@ -95,8 +94,25 @@ angular.module('starter.controllers', [])
   $scope.toggleCatagories = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
-
-
+    
+    $scope.deleteAll = function(){
+        var confirmDelete = $ionicPopup.confirm({
+           title: 'Delete all catagories',
+           template: 'Are you sure?'
+        });
+        
+        confirmDelete.then(function(res){
+            if(res){
+                window.localStorage.clear('catagories'); //wipes catagories from localstorage
+            } else {
+                console.log('123');
+            }
+        });
+    };
+      
+     // window.localStorage.clear('catagories');
+  //};
+    
   // prompt user to create first catagory if localstorage
   // is empty, using $timeout to delay function and allow
   // everything else to initialise first
@@ -113,8 +129,3 @@ angular.module('starter.controllers', [])
   });
 
 });
-    
-    
-    
-
-//.controller('optionsCtrl', function($scope) {}); //fix brackets if you're gonna use this

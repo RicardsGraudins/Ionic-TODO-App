@@ -1,2 +1,2 @@
--Added the code for catagories side menu.
--Options tab not functioning correctly.
+-Fixed options tab
+-Added delete all function

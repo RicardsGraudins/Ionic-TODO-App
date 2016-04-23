@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'tab-options': {
         templateUrl: "templates/options.html",
-        controller: 'optionsCtrl'
+        controller: 'tabCtrl'
       }
     }
   });
