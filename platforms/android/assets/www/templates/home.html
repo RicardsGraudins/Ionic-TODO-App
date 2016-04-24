@@ -1,0 +1,13 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <!-- List of tasks -->
+        <ion-list>
+            <ion-item ng-click="deleteTask($index)" ng-repeat="task in activeCatagory.tasks">
+                {{task.title}} <!-- Output whats stored in task.title -->
+                <div class="alignRight">
+                {{ task.added | date: 'HH:mm dd-MM-yyyy' }}
+                </div>
+            </ion-item>
+        </ion-list>
+  </ion-content>
+</ion-view>
