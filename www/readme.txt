@@ -1,2 +1,2 @@
--Fixed options tab
--Added delete all function
+-Tasks are now selectable and can be deleted individually
+-Added 'Date added' to tasks

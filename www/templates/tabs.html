@@ -35,13 +35,13 @@
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
       <h1 class="title">Catagories</h1>
-        <button class="button button-icon" ng-click="newCatagory()"> <!-- create new catagory -->
+        <button class="button button-icon" ng-click="newCatagory()"> <!-- Create new catagory -->
             <i class="icon ion-plus"></i>
         </button>
     </ion-header-bar>
-    <ion-content scroll="false"> <!-- disables scroll -->
+    <ion-content scroll="false"> <!-- Disables scroll -->
       <ion-list>
-          <ion-item ng-repeat="catagory in catagories" ng-click="selectCatagory(catagory, $index)" ng-class="{active: activeCatagory == catagory}"> <!-- select catagory -->
+          <ion-item ng-repeat="catagory in catagories" ng-click="selectCatagory(catagory, $index)" ng-class="{active: activeCatagory == catagory}"> <!-- Select catagory -->
             {{catagory.title}}
           </ion-item>
       </ion-list>

@@ -1,12 +1,13 @@
 <ion-view view-title="Home">
   <ion-content>
-    <!-- list of tasks -->
-    <!--<button> use this later to make all tasks clickable -->
+    <!-- List of tasks -->
         <ion-list>
-            <ion-item ng-repeat="task in activeCatagory.tasks">
-                {{task.title}} <!-- output whats stored in task.title -->
+            <ion-item ng-click="deleteTask($index)" ng-repeat="task in activeCatagory.tasks">
+                {{task.title}} <!-- Output whats stored in task.title -->
+                <div class="alignRight">
+                {{ task.added | date: 'HH:mm dd-MM-yyyy' }}
+                </div>
             </ion-item>
         </ion-list>
-    <!--</button> -->
   </ion-content>
 </ion-view>

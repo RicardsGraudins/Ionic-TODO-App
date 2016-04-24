@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
- //catagories factory manages saving and loading projects in localstorage
+ //Catagories factory manages saving and loading projects in localstorage
 .factory('Catagories', function() {
   return {
     all: function() {
@@ -73,11 +73,11 @@ angular.module('starter.controllers', [])
       return;
     }
     $scope.activeCatagory.tasks.push({
-      title: task.title
+      title: task.title, added: new Date()
     });
     $scope.taskModal.hide();
 
-    // saves all the catagories
+    // Saves all the catagories
     Catagories.save($scope.catagories);
 
     task.title = "";
@@ -95,7 +95,8 @@ angular.module('starter.controllers', [])
     $ionicSideMenuDelegate.toggleLeft();
   };
     
-    $scope.deleteAll = function(){
+    //Need to refresh for it to take effect
+    $scope.deleteAll = function(){ 
         var confirmDelete = $ionicPopup.confirm({
            title: 'Delete all catagories',
            template: 'Are you sure?'
@@ -105,15 +106,29 @@ angular.module('starter.controllers', [])
             if(res){
                 window.localStorage.clear('catagories'); //wipes catagories from localstorage
             } else {
-                console.log('123');
+                console.log('Not deleteing catagories');
             }
         });
     };
-      
-     // window.localStorage.clear('catagories');
-  //};
     
-  // prompt user to create first catagory if localstorage
+  //Delete single task
+  $scope.deleteTask = function(index){ 
+      var confirmDeleteTask = $ionicPopup.confirm({
+          title: 'Delete this task',
+          template:'Are you sure?'                                          
+      });
+      
+      confirmDeleteTask.then(function(res){
+          if(res){
+              $scope.task.splice(index, 1);
+             //console.log('delete');
+             } else {
+             console.log('Not deleteing task');
+             }
+      });
+   };
+    
+  // Prompt user to create first catagory if localstorage
   // is empty, using $timeout to delay function and allow
   // everything else to initialise first
   $timeout(function() {

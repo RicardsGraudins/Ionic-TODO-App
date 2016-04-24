@@ -17,7 +17,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  //abstract state for tabs
+  //Abstract state for tabs
   .state('tab', {
     url: "/tab",
     abstract: true,
@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'tabCtrl'
   })
 
-  //home tab
+  //Home tab
   .state('tab.home', {
     url: "/home",
     views: {
@@ -35,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  //options tab
+  //Options tab
   .state('tab.options', {
     url: "/options",
     views: {
@@ -46,6 +46,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
     
-  // if none of the above states are matched, use this as the fallback
+  // If none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 });
